@@ -16,5 +16,9 @@ describe('GET /', () => {
     })
 
     // Should return object with API value 'Up'
-
+    it('should return { api: "up" }', () => {
+        return request(server).get('/').then(res => {
+            expect(res.body).toEqual({ api: "up" }) // toBe checks by references, must be exact match -- use toEqual when checking properly value
+        })
+    })
 })
