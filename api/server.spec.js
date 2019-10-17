@@ -8,7 +8,13 @@ describe('GET /', () => {
             expect(res.status).toBe(200)
         })
     })
+
     // Should return response in JSON
+    test('should return JSON', async () => {
+        const response = await request(server).get('/');
+        expect(response.type).toMatch(/json/i) // toMatch uses a regular expression, i means case insensitive
+    })
+
     // Should return object with API value 'Up'
 
 })
